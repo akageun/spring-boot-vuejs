@@ -9,6 +9,6 @@ public class BackendController {
 
 	@RequestMapping(path = "/hello")
 	public String sayHello() {
-		return "Vue.js Test Text";
+		return "Vue.js Test Text 2";
 	}
 }
