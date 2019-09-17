@@ -1,4 +1,4 @@
-package kr.geun.o.backend;
+package kr.geun.o.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class BackendController {
 
-	@RequestMapping(path = "/hello")
-	public String sayHello() {
-		return "Vue.js Test Text 2";
-	}
+    @RequestMapping(path = "/hello")
+    public String sayHello() {
+        return "Vue.js Test Text 2";
+    }
 }
