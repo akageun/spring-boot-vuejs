@@ -1,0 +1,12 @@
+
+# .idea
+.idea
+
+# H2 database
+*.lock.db
+*.mv.db
+*.trace.db
+
+# www project
+npm-debug.log
+node_modules/

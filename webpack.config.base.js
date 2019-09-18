@@ -1,20 +1,23 @@
 const path = require('path');
 const webpack = require('webpack');
-const webpackMerge = require('webpack-merge');
+
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const developmentConfig = require('./webpack.config.local');
-const productionConfig = require('./webpack.config.prod');
+// const developmentConfig = require('./webpack.config.local');
+// const productionConfig = require('./webpack.config.prod');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-const srcdir = path.resolve(__dirname, 'src');
+const srcdir = path.resolve(__dirname, 'src/main/frontend');
 
 const entries = {
     'app': path.join(srcdir, 'main.js'),
 };
 
-const commonConfig = {
+module.exports = {
     entry: entries,
     output: {
         publicPath: '/static/bundle/',
@@ -55,9 +58,13 @@ const commonConfig = {
     },
     plugins: [
         new VueLoaderPlugin(),
+        new HtmlWebPackPlugin({
+            template:'src/main/resources/templates/index.html',
+            filename:'./index.html'
+        }),
     ],
 };
 
-module.exports = (env) => env === 'development'
-    ? webpackMerge(commonConfig, developmentConfig)
-    : webpackMerge(commonConfig, productionConfig);
+// module.exports = (env) => env === 'development'
+//     ? webpackMerge(commonConfig, developmentConfig)
+//     : webpackMerge(commonConfig, productionConfig);
