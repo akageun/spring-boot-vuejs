@@ -109,11 +109,11 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>src/main/resources/public</outputDirectory>
+                            <outputDirectory>src/main/resources/static</outputDirectory>
                             <overwrite>true</overwrite>
                             <resources>
                                 <resource>
-                                    <directory>${project.basedir}/ui/dist</directory>
+                                    <directory>${project.basedir}/src/main/frontend</directory>
                                     <includes>
                                         <include>**/*</include>
                                     </includes>

@@ -16,24 +16,6 @@ module.exports = webpackMerge(baseConfig, {
     },
     optimization: {
         minimizer: [
-            new UglifyJsPlugin({
-                sourceMap: false,
-                cache: true,
-                parallel: true,
-                uglifyOptions: {
-                    compress: {
-                        drop_console: true,
-                        drop_debugger: true,
-                        unused: true,
-                        dead_code: true,
-                    },
-                    output: {
-                        beautify: false,
-                        comments: false,
-                    },
-                    warnings: false,
-                },
-            }),
             new OptimizeCssnanoPlugin({
                 sourceMap: false,
                 cssnanoOptions: {
@@ -49,12 +31,15 @@ module.exports = webpackMerge(baseConfig, {
             }),
         ],
     },
+    performance: {
+        maxAssetSize: 100000
+    },
     plugins: [
-        new MiniCssExtractPlugin({filename: '[contenthash].css'}),
+        new MiniCssExtractPlugin({filename: 'base-[contenthash].css'}),
         new ManifestReplacePlugin({
             include: path.resolve(__dirname, 'src/main/resources/templates'),
             test: /\.(jsp|html|htm)$/,
-            outputDir: path.resolve(__dirname, 'target/prepare/WEB-INF/classes/templates'),
+            outputDir: path.resolve(__dirname, 'target/prepare/WEB-INF/classes/static/bundle'),
         }),
     ],
 });

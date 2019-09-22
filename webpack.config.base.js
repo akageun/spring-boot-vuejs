@@ -11,10 +11,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-const srcdir = path.resolve(__dirname, 'src/main/frontend');
+const srcDir = path.resolve(__dirname, 'src/main/frontend');
 
 const entries = {
-    'app': path.join(srcdir, 'main.js'),
+    'app': path.join(srcDir, 'main.js'),
 };
 
 module.exports = {
@@ -26,7 +26,7 @@ module.exports = {
         extensions: ['.js', '.vue'],
         alias: {
             vue: 'vue/dist/vue.esm.js',
-            '@': srcdir
+            '@': srcDir
         }
     },
     module: {
