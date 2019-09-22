@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
+
 
   export default {
     name: 'HelloWorld',
@@ -16,7 +16,7 @@
       }
     },
     created() {
-      axios.get('api/hello')
+      this.$http.get('api/hello')
         .then(result => this.msg = result.data)
     }
   }
