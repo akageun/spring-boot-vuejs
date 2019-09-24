@@ -16,7 +16,7 @@
       }
     },
     created() {
-      this.$http.get('api/hello')
+      this.$http.get('/api/hello')
         .then(result => this.msg = result.data)
     }
   }

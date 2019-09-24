@@ -39,7 +39,7 @@ module.exports = webpackMerge(baseConfig, {
         new ManifestReplacePlugin({
             include: path.resolve(__dirname, 'src/main/resources/templates'),
             test: /\.(jsp|html|htm)$/,
-            outputDir: path.resolve(__dirname, 'target/prepare/WEB-INF/classes/static/bundle'),
+            outputDir: path.resolve(__dirname, 'target/prepare/WEB-INF/classes/templates'),
         }),
     ],
 });
