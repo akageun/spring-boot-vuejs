@@ -9,6 +9,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const srcDir = path.resolve(__dirname, 'src/main/frontend');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const entries = {
     'app': path.join(srcDir, 'main.js'),
@@ -54,10 +55,17 @@ module.exports = {
         ],
     },
     plugins: [
+        new MiniCssExtractPlugin({filename: 'common.css'}),
         new VueLoaderPlugin(),
-        new HtmlWebPackPlugin({
-            template:'./index.html',
-            filename:'../../templates/index.html'
-        }),
+        // new HtmlWebPackPlugin({
+        //     template:'./src/main/resources/index.html',
+        //     filename:'../../index.html'
+        // }),
+        new CopyWebpackPlugin([
+            {
+                from: './src/main/frontend/assets',
+                to: './assets'
+            }
+        ])
     ],
 };

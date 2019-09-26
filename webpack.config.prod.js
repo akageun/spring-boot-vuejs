@@ -8,10 +8,12 @@ const ManifestReplacePlugin = require('webpack-manifest-replace-plugin');
 const OptimizeCssnanoPlugin = require('@intervolga/optimize-cssnano-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
+
+
 module.exports = webpackMerge(baseConfig, {
     mode: 'production',
     output: {
-        filename: '[name]-[chunkhash].js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'target/prepare/static/bundle'),
     },
     optimization: {
@@ -37,6 +39,6 @@ module.exports = webpackMerge(baseConfig, {
         maxAssetSize: 512000
     },
     plugins: [
-        new MiniCssExtractPlugin({filename: 'base-[contenthash].css'})
+
     ],
 });

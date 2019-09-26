@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
  * HomeController
  *
  * @author akageun
- * @since 2019-09-18
+ * @since 2019-09-26
  */
 @Slf4j
 @Controller
 public class HomeController {
 
     @GetMapping("/")
-    public String home() {
-        log.info("test");
+    public String index() {
         return "index";
     }
 }
