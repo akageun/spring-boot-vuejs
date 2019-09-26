@@ -12,7 +12,7 @@ module.exports = webpackMerge(baseConfig, {
     mode: 'production',
     output: {
         filename: '[name]-[chunkhash].js',
-        path: path.resolve(__dirname, 'target/prepare/WEB-INF/classes/static/bundle'),
+        path: path.resolve(__dirname, 'target/prepare/static/bundle'),
     },
     optimization: {
         minimizer: [
@@ -32,14 +32,11 @@ module.exports = webpackMerge(baseConfig, {
         ],
     },
     performance: {
-        maxAssetSize: 100000
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
     },
     plugins: [
-        new MiniCssExtractPlugin({filename: 'base-[contenthash].css'}),
-        new ManifestReplacePlugin({
-            include: path.resolve(__dirname, 'src/main/resources/templates'),
-            test: /\.(jsp|html|htm)$/,
-            outputDir: path.resolve(__dirname, 'target/prepare/WEB-INF/classes/templates'),
-        }),
+        new MiniCssExtractPlugin({filename: 'base-[contenthash].css'})
     ],
 });

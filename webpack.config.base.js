@@ -6,9 +6,6 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-// const developmentConfig = require('./webpack.config.local');
-// const productionConfig = require('./webpack.config.prod');
-
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const srcDir = path.resolve(__dirname, 'src/main/frontend');
@@ -59,12 +56,8 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebPackPlugin({
-            template:'src/main/resources/templates/index.html',
-            filename:'./index.html'
+            template:'./index.html',
+            filename:'../../templates/index.html'
         }),
     ],
 };
-
-// module.exports = (env) => env === 'development'
-//     ? webpackMerge(commonConfig, developmentConfig)
-//     : webpackMerge(commonConfig, productionConfig);

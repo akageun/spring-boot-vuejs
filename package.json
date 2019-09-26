@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack --env=production --progress --config webpack.config.prod.js ",
+    "build": "webpack --env=production --config webpack.config.prod.js ",
     "watch": "webpack-dev-server --inline --progress --env=development --config webpack.config.local.js"
   },
   "devDependencies": {

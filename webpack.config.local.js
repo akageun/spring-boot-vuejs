@@ -11,7 +11,7 @@ module.exports = webpackMerge(baseConfig, {
     mode: 'development',
     devtool: 'cheap-module-eval-source-map',
     devServer: {
-        index: path.resolve(__dirname, 'src/main/resources/templates/index.html'),
+        index: path.resolve(__dirname, './index.html'),
         historyApiFallback: true,
         disableHostCheck: true,
         compress: true,
